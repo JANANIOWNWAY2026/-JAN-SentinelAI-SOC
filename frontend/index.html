@@ -1,0 +1,1758 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#050914">
+
+    <meta name="description" content="SentinelAI AI-powered Security Operations Center">
+
+    <title>SentinelAI | Security Operations Center</title>
+
+    <link rel="stylesheet" href="/assets/style.css">
+
+</head>
+
+
+<body>
+
+
+    <div class="app">
+
+
+        <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+        <aside class="sidebar">
+
+
+            <!-- LOGO -->
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    🛡
+                </div>
+
+                <div>
+
+                    <h2>SentinelAI</h2>
+
+                    <span>
+                        Security Operations Center
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- NAVIGATION -->
+
+            <nav class="navigation">
+
+
+                <a href="#dashboard" class="nav-item active" data-section="dashboard">
+
+                    <span>⌂</span>
+
+                    <strong>
+                        Dashboard
+                    </strong>
+
+                </a>
+
+
+                <a href="#alerts" class="nav-item" data-section="alerts">
+
+                    <span>⚠</span>
+
+                    <strong>
+                        Alerts
+                    </strong>
+
+                </a>
+
+
+                <a href="#ai-engine" class="nav-item" data-section="ai-engine">
+
+                    <span>◉</span>
+
+                    <strong>
+                        AI Engine
+                    </strong>
+
+                </a>
+
+
+                <a href="#settings" class="nav-item" data-section="settings">
+
+                    <span>⚙</span>
+
+                    <strong>
+                        Settings
+                    </strong>
+
+                </a>
+
+
+            </nav>
+
+
+            <!-- SYSTEM STATUS -->
+
+            <div class="system-status">
+
+                <div class="status-dot"></div>
+
+                <div>
+
+                    <strong>
+                        SYSTEM ONLINE
+                    </strong>
+
+                    <small>
+                        SentinelAI monitoring active
+                    </small>
+
+                </div>
+
+            </div>
+
+
+        </aside>
+
+
+
+        <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+        <main class="main-content">
+
+
+            <!-- =================================================
+             TOP BAR
+             ================================================= -->
+
+            <header class="topbar">
+
+
+                <div>
+
+                    <h1 id="pageTitle">
+                        Security Dashboard
+                    </h1>
+
+                    <p id="pageSubtitle">
+                        Real-time security monitoring and threat detection
+                    </p>
+
+                </div>
+
+
+                <div class="topbar-actions">
+
+
+                    <!-- LAST UPDATED -->
+
+                    <div class="last-updated">
+
+                        <span>
+                            Last Updated
+                        </span>
+
+                        <strong id="lastUpdated">
+                            --:--:--
+                        </strong>
+
+                    </div>
+
+
+                    <!-- LIVE STATUS -->
+
+                    <div class="live-badge" id="liveBadge">
+
+                        LIVE
+
+                    </div>
+
+
+                    <!-- REFRESH -->
+
+                    <button type="button" class="icon-button" id="refreshButton" title="Refresh dashboard"
+                        aria-label="Refresh dashboard">
+
+                        ↻
+
+                    </button>
+
+
+                    <!-- USER -->
+
+                    <div class="user-profile">
+
+                        <div class="avatar">
+                            SA
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                SOC Analyst
+                            </strong>
+
+                            <small>
+                                Administrator
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+            </header>
+
+
+
+            <!-- =================================================
+             DASHBOARD SECTION
+             ================================================= -->
+
+            <section id="dashboard" class="page-section active">
+
+
+                <!-- =================================================
+                 STAT CARDS
+                 ================================================= -->
+
+                <div class="stats-grid">
+
+
+                    <!-- TOTAL -->
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon">
+                            ◈
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Total Alerts
+                            </span>
+
+                            <h2 id="totalAlerts">
+                                0
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CRITICAL -->
+
+                    <div class="stat-card critical">
+
+                        <div class="stat-icon">
+                            !
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Critical Alerts
+                            </span>
+
+                            <h2 id="criticalAlerts">
+                                0
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- HIGH -->
+
+                    <div class="stat-card high">
+
+                        <div class="stat-icon">
+                            ▲
+                        </div>
+
+                        <div>
+
+                            <span>
+                                High Risk
+                            </span>
+
+                            <h2 id="highAlerts">
+                                0
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- RESOLVED -->
+
+                    <div class="stat-card resolved">
+
+                        <div class="stat-icon">
+                            ✓
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Resolved
+                            </span>
+
+                            <h2 id="resolvedAlerts">
+                                0
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                 DASHBOARD INLINE PANELS
+                 ================================================= -->
+
+                <div class="dashboard-grid">
+
+
+                    <!-- =================================================
+                     THREAT OVERVIEW
+                     ================================================= -->
+
+                    <div class="panel">
+
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <h3>
+                                    Threat Overview
+                                </h3>
+
+                                <p>
+                                    Current security event distribution
+                                </p>
+
+                            </div>
+
+                            <div class="security-test-badge">
+                                LIVE TELEMETRY
+                            </div>
+
+                        </div>
+
+
+                        <div class="risk-chart">
+
+
+                            <!-- CRITICAL -->
+
+                            <div class="risk-row">
+
+                                <div class="risk-label">
+
+                                    <span>
+                                        Critical
+                                    </span>
+
+                                    <strong id="criticalThreatCount">
+                                        0
+                                    </strong>
+
+                                </div>
+
+                                <div class="risk-bar">
+
+                                    <div class="risk-fill critical-fill" style="width:0%">
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- HIGH -->
+
+                            <div class="risk-row">
+
+                                <div class="risk-label">
+
+                                    <span>
+                                        High
+                                    </span>
+
+                                    <strong id="highThreatCount">
+                                        0
+                                    </strong>
+
+                                </div>
+
+                                <div class="risk-bar">
+
+                                    <div class="risk-fill high-fill" style="width:0%">
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- MEDIUM -->
+
+                            <div class="risk-row">
+
+                                <div class="risk-label">
+
+                                    <span>
+                                        Medium
+                                    </span>
+
+                                    <strong id="mediumThreatCount">
+                                        0
+                                    </strong>
+
+                                </div>
+
+                                <div class="risk-bar">
+
+                                    <div class="risk-fill medium-fill" style="width:0%">
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- LOW -->
+
+                            <div class="risk-row">
+
+                                <div class="risk-label">
+
+                                    <span>
+                                        Low
+                                    </span>
+
+                                    <strong id="lowThreatCount">
+                                        0
+                                    </strong>
+
+                                </div>
+
+                                <div class="risk-bar">
+
+                                    <div class="risk-fill low-fill" style="width:0%">
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                     AI STATUS
+                     ================================================= -->
+
+                    <div class="panel">
+
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <h3>
+                                    AI Threat Detection
+                                </h3>
+
+                                <p>
+                                    Machine-learning anomaly analysis
+                                </p>
+
+                            </div>
+
+
+                            <div class="ai-status online" id="dashboardAIStatus">
+
+                                ● ONLINE
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="ai-content">
+
+
+                            <div class="ai-score">
+
+                                <strong id="dashboardAIAnomalies">
+                                    0
+                                </strong>
+
+                                <span>
+                                    Anomalies
+                                </span>
+
+                            </div>
+
+
+                            <div class="ai-info">
+
+
+                                <div>
+
+                                    <span>
+                                        Model
+                                    </span>
+
+                                    <strong id="dashboardAIModel">
+                                        Isolation Forest
+                                    </strong>
+
+                                </div>
+
+
+                                <div>
+
+                                    <span>
+                                        Engine
+                                    </span>
+
+                                    <strong id="dashboardAIEngine">
+                                        ONLINE
+                                    </strong>
+
+                                </div>
+
+
+                                <div>
+
+                                    <span>
+                                        Detection
+                                    </span>
+
+                                    <strong id="dashboardAIDetection">
+                                        ENABLED
+                                    </strong>
+
+                                </div>
+
+
+                                <div>
+
+                                    <span>
+                                        Latest Score
+                                    </span>
+
+                                    <strong id="dashboardAILatestScore">
+                                        --
+                                    </strong>
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                 SECURITY EVENT SIMULATOR
+                 ================================================= -->
+
+                <div class="panel simulator-panel">
+
+
+                    <div class="panel-header">
+
+
+                        <div>
+
+                            <h3>
+                                Security Event Simulator
+                            </h3>
+
+                            <p>
+                                Generate authorized security telemetry for testing
+                            </p>
+
+                        </div>
+
+
+                        <div class="security-test-badge">
+                            LAB MODE
+                        </div>
+
+
+                    </div>
+
+
+                    <form class="simulator-form" id="securityEventForm">
+
+
+                        <!-- EVENT TYPE -->
+
+                        <div class="form-group">
+
+                            <label for="eventType">
+                                Event Type
+                            </label>
+
+                            <select id="eventType">
+
+                                <option value="login">
+                                    Login
+                                </option>
+
+                                <option value="privilege_escalation">
+                                    Privilege Escalation
+                                </option>
+
+                                <option value="network">
+                                    Network Activity
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- USERNAME -->
+
+                        <div class="form-group">
+
+                            <label for="username">
+                                Username
+                            </label>
+
+                            <input type="text" id="username" placeholder="admin" value="admin">
+
+                        </div>
+
+
+                        <!-- SOURCE IP -->
+
+                        <div class="form-group">
+
+                            <label for="sourceIP">
+                                Source IP
+                            </label>
+
+                            <input type="text" id="sourceIP" placeholder="192.168.1.10" value="192.168.1.10">
+
+                        </div>
+
+
+                        <!-- FAILED ATTEMPTS -->
+
+                        <div class="form-group">
+
+                            <label for="failedAttempts">
+                                Failed Attempts
+                            </label>
+
+                            <input type="number" id="failedAttempts" min="0" max="100" value="0">
+
+                        </div>
+
+
+                        <!-- LOGIN STATUS -->
+
+                        <div class="form-group">
+
+                            <label for="loginStatus">
+                                Login Status
+                            </label>
+
+                            <select id="loginStatus">
+
+                                <option value="success">
+                                    Success
+                                </option>
+
+                                <option value="failed">
+                                    Failed
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- SIMULATE -->
+
+                        <button type="button" class="simulate-button" onclick="simulateSecurityEvent()">
+
+                            Run Security Test
+
+                        </button>
+
+
+                    </form>
+
+
+                    <!-- SECURITY RESULT -->
+
+                    <div id="securityResult" class="security-result hidden">
+
+
+                        <div class="security-result-header">
+
+                            <strong id="securityResultTitle">
+                                Security Analysis
+                            </strong>
+
+                            <span id="securityResultBadge">
+
+                                ANALYZING
+
+                            </span>
+
+                        </div>
+
+
+                        <div class="security-result-grid">
+
+
+                            <div>
+
+                                <span>
+                                    Rule
+                                </span>
+
+                                <strong id="securityResultRule">
+                                    --
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>
+                                    Severity
+                                </span>
+
+                                <strong id="securityResultSeverity">
+                                    --
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>
+                                    Risk Score
+                                </span>
+
+                                <strong id="securityResultRisk">
+                                    --
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>
+                                    AI Analysis
+                                </span>
+
+                                <strong id="securityResultAI">
+                                    --
+                                </strong>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                 RECENT ALERTS
+                 ================================================= -->
+
+                <div class="panel alerts-panel">
+
+
+                    <div class="panel-header">
+
+
+                        <div>
+
+                            <h3>
+                                Recent Security Alerts
+                            </h3>
+
+                            <p>
+                                Latest events detected by SentinelAI
+                            </p>
+
+                        </div>
+
+
+                        <div class="alert-actions">
+
+                            <input type="search" id="alertSearch" class="search-input" placeholder="Search alerts...">
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="table-container">
+
+
+                        <table>
+
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        ID
+                                    </th>
+
+                                    <th>
+                                        Alert
+                                    </th>
+
+                                    <th>
+                                        Rule
+                                    </th>
+
+                                    <th>
+                                        Severity
+                                    </th>
+
+                                    <th>
+                                        Risk
+                                    </th>
+
+                                    <th>
+                                        Source IP
+                                    </th>
+
+                                    <th>
+                                        Status
+                                    </th>
+
+                                    <th>
+                                        Action
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody id="alertsTableBody">
+
+                                <tr>
+
+                                    <td colspan="8">
+
+                                        <div class="empty-state">
+
+                                            Loading security alerts...
+
+                                        </div>
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+
+                        </table>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =====================================================
+             ALERTS PAGE
+             ===================================================== -->
+
+            <section id="alerts" class="page-section">
+
+
+                <div class="panel alerts-panel">
+
+
+                    <div class="panel-header">
+
+
+                        <div>
+
+                            <h3>
+                                Security Alert Center
+                            </h3>
+
+                            <p>
+                                Investigate and manage detected threats
+                            </p>
+
+                        </div>
+
+
+                        <div class="alert-actions">
+
+                            <input type="search" id="alertsPageSearch" class="search-input"
+                                placeholder="Search security alerts...">
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="table-container">
+
+
+                        <table>
+
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        ID
+                                    </th>
+
+                                    <th>
+                                        Alert
+                                    </th>
+
+                                    <th>
+                                        Rule
+                                    </th>
+
+                                    <th>
+                                        Severity
+                                    </th>
+
+                                    <th>
+                                        Risk
+                                    </th>
+
+                                    <th>
+                                        Source IP
+                                    </th>
+
+                                    <th>
+                                        Status
+                                    </th>
+
+                                    <th>
+                                        Action
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody id="alertsPageTableBody">
+
+                                <tr>
+
+                                    <td colspan="8">
+
+                                        <div class="empty-state">
+                                            No alerts loaded.
+                                        </div>
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+
+                        </table>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =====================================================
+             AI ENGINE PAGE
+             ===================================================== -->
+
+            <section id="ai-engine" class="page-section">
+
+
+                <div class="dashboard-grid">
+
+
+                    <!-- AI ENGINE -->
+
+                    <div class="panel">
+
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <h3>
+                                    SentinelAI Engine
+                                </h3>
+
+                                <p>
+                                    AI-powered anomaly detection engine
+                                </p>
+
+                            </div>
+
+
+                            <div class="ai-status online" id="aiEngineStatus">
+
+                                ● ONLINE
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="ai-content">
+
+
+                            <div class="ai-score">
+
+                                <strong id="aiEngineAnomalies">
+                                    0
+                                </strong>
+
+                                <span>
+                                    Anomalies
+                                </span>
+
+                            </div>
+
+
+                            <div class="ai-info">
+
+
+                                <div>
+
+                                    <span>
+                                        Machine Learning Model
+                                    </span>
+
+                                    <strong id="aiEngineModel">
+                                        Isolation Forest
+                                    </strong>
+
+                                </div>
+
+
+                                <div>
+
+                                    <span>
+                                        Detection Status
+                                    </span>
+
+                                    <strong id="aiEngineDetection">
+                                        ENABLED
+                                    </strong>
+
+                                </div>
+
+
+                                <div>
+
+                                    <span>
+                                        Events Analyzed
+                                    </span>
+
+                                    <strong id="aiEngineAnalyzed">
+                                        0
+                                    </strong>
+
+                                </div>
+
+
+                                <div>
+
+                                    <span>
+                                        Latest Anomaly Score
+                                    </span>
+
+                                    <strong id="aiEngineLatestScore">
+                                        --
+                                    </strong>
+                                    <div class="ai-score-bar">
+                                        <div id="aiScoreBar" class="ai-score-fill">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div>
+
+                                    <span>
+                                        AI Threat Level
+                                    </span>
+
+                                    <strong id="aiEngineThreatLevel">
+                                        NORMAL
+                                    </strong>
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- AI INFORMATION -->
+
+                    <div class="panel">
+
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <h3>
+                                    Detection Pipeline
+                                </h3>
+
+                                <p>
+                                    SentinelAI analysis workflow
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="risk-chart">
+
+
+                            <div class="risk-row">
+
+                                <div class="risk-label">
+
+                                    <span>
+                                        Event Ingestion
+                                    </span>
+
+                                    <strong>
+                                        ACTIVE
+                                    </strong>
+
+                                </div>
+
+                                <div class="risk-bar">
+
+                                    <div class="risk-fill low-fill" style="width:100%">
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="risk-row">
+
+                                <div class="risk-label">
+
+                                    <span>
+                                        Rule Detection
+                                    </span>
+
+                                    <strong>
+                                        ACTIVE
+                                    </strong>
+
+                                </div>
+
+                                <div class="risk-bar">
+
+                                    <div class="risk-fill low-fill" style="width:100%">
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="risk-row">
+
+                                <div class="risk-label">
+
+                                    <span>
+                                        AI Anomaly Detection
+                                    </span>
+
+                                    <strong>
+                                        ACTIVE
+                                    </strong>
+
+                                </div>
+
+                                <div class="risk-bar">
+
+                                    <div class="risk-fill high-fill" style="width:100%">
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="risk-row">
+
+                                <div class="risk-label">
+
+                                    <span>
+                                        Alert Correlation
+                                    </span>
+
+                                    <strong>
+                                        ACTIVE
+                                    </strong>
+
+                                </div>
+
+                                <div class="risk-bar">
+
+                                    <div class="risk-fill low-fill" style="width:100%">
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =====================================================
+             SETTINGS PAGE
+             ===================================================== -->
+
+            <section id="settings" class="page-section">
+
+
+                <div class="panel settings-panel">
+
+
+                    <div class="panel-header">
+
+
+                        <div>
+
+                            <h3>
+                                SOC Monitoring Settings
+                            </h3>
+
+                            <p>
+                                Configure SentinelAI monitoring behaviour
+                            </p>
+
+                        </div>
+
+
+                        <div class="security-test-badge">
+                            CONFIGURATION
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="settings-options">
+
+
+                        <!-- LIVE MONITORING -->
+
+                        <div class="setting-option">
+
+
+                            <div>
+
+                                <strong>
+                                    Live Monitoring
+                                </strong>
+
+                                <small>
+                                    Automatically monitor the backend for new security alerts.
+                                </small>
+
+                            </div>
+
+
+                            <label class="switch">
+
+                                <input type="checkbox" id="liveMonitoringToggle" checked>
+
+                                <span class="slider"></span>
+
+                            </label>
+
+
+                        </div>
+
+
+
+                        <!-- AUTO REFRESH -->
+
+                        <div class="setting-option">
+
+
+                            <div>
+
+                                <strong>
+                                    Auto Refresh
+                                </strong>
+
+                                <small>
+                                    Automatically refresh dashboard telemetry at regular intervals.
+                                </small>
+
+                            </div>
+
+
+                            <label class="switch">
+
+                                <input type="checkbox" id="autoRefreshToggle" checked>
+
+                                <span class="slider"></span>
+
+                            </label>
+
+
+                        </div>
+
+
+
+                        <!-- AI DETECTION -->
+
+                        <div class="setting-option">
+
+
+                            <div>
+
+                                <strong>
+                                    AI Detection
+                                </strong>
+
+                                <small>
+                                    Enable machine-learning anomaly detection during analysis.
+                                </small>
+
+                            </div>
+
+
+                            <label class="switch">
+
+                                <input type="checkbox" id="aiDetectionToggle"
+                                    onchange="handleAIDetectionToggle(this.checked)">
+
+                                <span class="slider"></span>
+
+                            </label>
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- SETTINGS STATUS -->
+
+                    <div class="settings-options">
+
+
+                        <div class="setting-option">
+
+
+                            <div>
+
+                                <strong>
+                                    AI Detection Status
+                                </strong>
+
+                                <small>
+                                    Current AI engine configuration.
+                                </small>
+
+                            </div>
+
+
+                            <span class="setting-value" id="settingsAIDetection">
+
+                                ENABLED
+
+                            </span>
+
+
+                        </div>
+
+
+                        <div class="setting-option">
+
+
+                            <div>
+
+                                <strong>
+                                    AI Engine
+                                </strong>
+
+                                <small>
+                                    SentinelAI machine-learning service.
+                                </small>
+
+                            </div>
+
+
+                            <span class="setting-value" id="settingsAIStatus">
+
+                                ONLINE
+
+                            </span>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- SETTINGS ACTIONS -->
+
+                    <div class="settings-actions">
+
+
+                        <button type="button" class="secondary-button" id="resetSettingsButton">
+
+                            Reset Settings
+
+                        </button>
+
+
+                        <button type="button" class="secondary-button" id="saveSettingsButton">
+
+                            Save Settings
+
+                        </button>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =====================================================
+             FOOTER
+             ===================================================== -->
+
+            <footer>
+
+                <span>
+                    SentinelAI Security Operations Center
+                </span>
+
+                <span>
+                    AI-powered threat monitoring • Final Year Project
+                </span>
+
+            </footer>
+
+
+        </main>
+
+
+    </div>
+
+
+
+    <!-- =========================================================
+     INVESTIGATION MODAL
+     ========================================================= -->
+
+    <div class="investigation-modal" id="investigationModal">
+
+
+        <div class="investigation-content">
+
+
+            <!-- HEADER -->
+
+            <div class="investigation-header">
+
+
+                <div>
+
+                    <h2>
+                        Alert Investigation
+                    </h2>
+
+                    <p>
+                        Security event investigation details
+                    </p>
+
+                </div>
+
+
+                <button type="button" class="close-modal" id="closeInvestigationModal" aria-label="Close">
+
+                    ×
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- ALERT TITLE -->
+
+            <div class="investigation-alert-title">
+
+
+                <span id="modalAlertTitle">
+                    Security Alert
+                </span>
+
+
+                <span id="modalAlertSeverity" class="severity critical">
+
+                    --
+
+                </span>
+
+
+            </div>
+
+
+
+            <!-- DETAILS -->
+
+            <div class="investigation-grid">
+
+
+                <div class="investigation-field">
+
+                    <span>
+                        Detection Rule
+                    </span>
+
+                    <strong id="modalAlertRule">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="investigation-field">
+
+                    <span>
+                        Risk Score
+                    </span>
+
+                    <strong id="modalAlertRisk">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="investigation-field">
+
+                    <span>
+                        Status
+                    </span>
+
+                    <strong id="modalAlertStatus">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="investigation-field">
+
+                    <span>
+                        Source IP
+                    </span>
+
+                    <strong id="modalAlertIP">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="investigation-field">
+
+                    <span>
+                        Username
+                    </span>
+
+                    <strong id="modalAlertUsername">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="investigation-field">
+
+                    <span>
+                        Detection Time
+                    </span>
+
+                    <strong id="modalAlertTime">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="investigation-field">
+
+                    <span>
+                        AI Analysis
+                    </span>
+
+                    <strong id="modalAlertAI">
+                        --
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ACTIONS -->
+
+            <div class="investigation-actions">
+
+
+                <button type="button" class="investigate-status-button investigating"
+                    onclick="updateAlertStatus('INVESTIGATING')">
+
+                    Mark Investigating
+
+                </button>
+
+
+                <button type="button" class="investigate-status-button resolved"
+                    onclick="updateAlertStatus('RESOLVED')">
+
+                    Resolve Alert
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
+
+    <script src="/assets/app.js" defer>
+    </script>
+
+
+</body>
+
+</html>
